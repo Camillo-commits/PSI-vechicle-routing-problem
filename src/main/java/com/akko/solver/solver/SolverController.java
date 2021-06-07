@@ -27,7 +27,7 @@ public class SolverController {
     @Autowired
     private SolverManager<Problem, UUID> solverManager;
     @Autowired LocationRepository locationRepository;
-}
+
     @PostMapping("/solveTest")
     public Problem solveTest() {
 
