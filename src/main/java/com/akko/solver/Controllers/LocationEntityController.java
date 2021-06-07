@@ -69,4 +69,14 @@ public class LocationEntityController {
             locationRepository.deleteById(id);
         }
     }
+    @DeleteMapping("/")
+    public String delete(){
+        try{
+            locationRepository.deleteAll();
+        }
+        catch (Exception e){
+            return e.toString();
+        }
+        return "database cleared successfully";
+    }
 }
