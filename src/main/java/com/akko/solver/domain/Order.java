@@ -1,5 +1,6 @@
 package com.akko.solver.domain;
 
+import com.akko.solver.models.LocationEntity;
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
 
@@ -8,7 +9,7 @@ public class Order {
     private Integer number;
 
     @PlanningVariable(valueRangeProviderRefs = "location")
-    private Location location;
+    private LocationEntity location;
 
     public Order() {
     }
@@ -25,11 +26,11 @@ public class Order {
         this.number = number;
     }
 
-    public Location getLocation() {
+    public LocationEntity getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(LocationEntity location) {
         this.location = location;
     }
 }

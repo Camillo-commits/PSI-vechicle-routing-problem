@@ -1,5 +1,6 @@
 package com.akko.solver.domain;
 
+import com.akko.solver.models.LocationEntity;
 import org.optaplanner.core.api.domain.solution.*;
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
@@ -11,7 +12,7 @@ public class Problem {
 
     @ValueRangeProvider(id = "location")
     @ProblemFactCollectionProperty //elements for assignment
-    private List<Location> locations;
+    private List<LocationEntity> locations;
 
     @PlanningEntityCollectionProperty   //elements that are selecting
     private List<Order> orders;
@@ -30,11 +31,11 @@ public class Problem {
         this.orders = orders;
     }
 
-    public List<Location> getLocations() {
+    public List<LocationEntity> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<Location> locations) {
+    public void setLocations(List<LocationEntity> locations) {
         this.locations = locations;
     }
 
