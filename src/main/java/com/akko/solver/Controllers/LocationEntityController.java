@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/location")
@@ -32,8 +33,10 @@ public class LocationEntityController {
     @GetMapping("/{id}")
     public ResponseEntity<LocationEntity> get(@PathVariable Long id){
         try{
-            LocationEntity location = locationRepository.getById(id);
-            return new ResponseEntity<LocationEntity>(location, HttpStatus.OK);
+            Optional<LocationEntity> location = locationRepository.findById(id);
+            if(location.isPresent())
+                return new ResponseEntity<LocationEntity>(location.get(), HttpStatus.OK);
+            return null;
         }catch(NoSuchElementException e){
             return new ResponseEntity<LocationEntity>(HttpStatus.NOT_FOUND);
         }
@@ -44,10 +47,10 @@ public class LocationEntityController {
         locationRepository.save(location);
     }
 
-    @PutMapping("/{id}")
+   /* @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody LocationEntity location, @PathVariable Long id){
         try{
-            LocationEntity exist = locationRepository.getById(id);
+            LocationEntity exist = locationRepository.findById(id);
             exist.setLatitude(location.getLatitude());
             exist.setLongitude(location.getLongitude());
             locationRepository.save(exist);
@@ -55,7 +58,7 @@ public class LocationEntityController {
         }catch(NoSuchElementException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-    }
+    }*/
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){

@@ -7,9 +7,10 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable;
 @PlanningEntity
 public class Order {
     private Integer number;
+    private Integer distance;
 
     @PlanningVariable(valueRangeProviderRefs = "location")
-    private LocationEntity location;
+    private Location location;
 
     public Order() {
     }
@@ -26,11 +27,19 @@ public class Order {
         this.number = number;
     }
 
-    public LocationEntity getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(LocationEntity location) {
+    public Integer getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Integer distance) {
+        this.distance = distance;
+    }
+
+    public void setLocation(Location location) {
         this.location = location;
     }
 }

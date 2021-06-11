@@ -3,10 +3,12 @@ package com.akko.solver.domain;
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
 
+import java.util.List;
+
 public class Location {
     private Double longitude;
     private Double latitude;
-
+    private List<Integer> distances;
 
     public Location() {
     }
@@ -30,5 +32,13 @@ public class Location {
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    public List<Integer> getDistances() {
+        return distances;
+    }
+
+    public void setDistances(List<Integer> distances) {
+        this.distances = distances;
     }
 }

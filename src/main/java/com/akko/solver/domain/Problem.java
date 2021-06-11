@@ -12,7 +12,7 @@ public class Problem {
 
     @ValueRangeProvider(id = "location")
     @ProblemFactCollectionProperty //elements for assignment
-    private List<LocationEntity> locations;
+    private List<Location> locations;
 
     @PlanningEntityCollectionProperty   //elements that are selecting
     private List<Order> orders;
@@ -31,11 +31,11 @@ public class Problem {
         this.orders = orders;
     }
 
-    public List<LocationEntity> getLocations() {
+    public List<Location> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<LocationEntity> locations) {
+    public void setLocations(List<Location> locations) {
         this.locations = locations;
     }
 
